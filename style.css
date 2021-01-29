@@ -1,0 +1,188 @@
+/*
+	Styling replica of windows calculator application
+	Created by Aashish Loknath Panigrahi (@asxyzp)
+*/
+
+/*Body has flex properties to center the content, which is calculator body*/
+body{
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items:center;
+	align-content: center;
+	background: lightgreen;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/*
+	Contains styling for the following containers :
+	Calculator body
+	Calculator top 
+	Calculator description
+	Calculator top button group
+	Calculator body & histogram
+*/
+.calc{											/*Calculator container (div)*/
+	width:30%;
+	margin-top: 20vh;
+	border: 1px solid black;
+	background : #F5F5F5;
+	box-shadow: 0 8px 6px -6px black;
+}
+.calc-top{									  /*Calculator top container containing description & top buttons*/
+	margin: 0px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.calc-body-hist{margin: 5px;}				/*Calculator container containing both calculator body & history*/
+.calc-desc{									/*Calculator description*/
+	display: block; 
+	font-size: 15px;
+	font-weight: 700;
+	margin-top: auto; 
+	margin-bottom: auto;
+	margin-left: 7px;
+}					
+
+/*  Styles for button group on the top which contains button for :
+	1. minimization & maximization of window (functional)
+	2. cancellation/closing the window (not functional in v1.0)
+*/
+.calc-top-btn-group{								/*Calculator top button group (for min, max, cancel)*/
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.top-btn{										  	/*Styling the top buttons*/
+	display: block;	margin: auto;
+	font-weight: 700; padding-left: 7px; padding-right: 7px;
+}
+.calc-min:hover {background:lightblue;color:white;cursor:grabbing;}	 /*Hover styling for min & max button*/
+.calc-max:hover {background:lightblue;color:white;cursor:grabbing;}	 /*Hover styling for min & max button*/
+.calc-cancel:hover{cursor : grabbing;}
+
+/*
+	Styling the following :
+	- (calc-opt) Container w/in calc-body which contains menu button to show dropdown menu
+	- (calc-opt-left) Container containing dropdown menu button & text showing selected option in dropdown menu 
+*/
+
+/*Styling the container containing dropdown menu option & history button*/
+.calc-opt{
+	display: flex;
+	margin-left:7px;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+/*Styling the container containing dropdown menu button & the description of the selected option*/
+.calc-opt-left{
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	justify-content: space-between;
+}
+
+/**/
+.bi-list{font-size: 18px;}												/*Styling list menu icon*/
+.std{margin-left: 7px; font-size: 18px;}								/*Styling standard text*/
+.hist-btn{padding-left: 7px; padding-right: 7px; font-size: 18px;}		/*Styling history button in calc-body*/
+.dropdown{																/*Styling dropdown menu*/
+	visibility: hidden;
+	position: absolute;
+	width: 20%;
+	height: 35vh;
+	overflow: auto;
+	margin-left: 7px;
+	padding: 5px;
+	z-index: 2;
+	background: white;
+	opacity: 1;
+	border: 1px solid #000;
+}
+.dropdown-option{														/*Styling dropdown menu options in calc-opt*/
+	padding: 3px 0px;
+	font-size: 15px;
+}
+.dropdown-option:hover{													/*Styling hover state of dropdown menu option options in calc-opt*/
+	cursor: grabbing;
+}
+.dropdown-menu:hover{cursor:grabbing;}									/*Styling hover state of dropdown menu option*/
+.std-opt{background: darkblue;color: white;}						/*Styling standard option in dropdown menu*/
+.other-opt{ opacity: 0.5; font-size: 15px; cursor:grabbing;}			/*Styling other options in dropdown menu*/
+
+.about-opt{font-size: 15px; cursor: grabbing;}							/*Styling about menu*/
+.about-opt:hover{background: darkblue;color: white;}				/*Styling about menu when hovering*/
+.about-div{  
+	display : none;
+	flex-direction: row;
+	justify-content: center; 
+	position: fixed;
+	backdrop-filter: blur(3px);
+	width: 29.6%;
+	height: 330px;
+	margin-left: 1px;
+}
+.about{
+	background : #F5F5F5;
+	border: 1px solid black;
+	box-shadow: 0 8px 6px -6px black;
+	text-align: center;
+	padding: 7px;
+	height: 200px;
+	width: 70%;
+	margin-top: 50px;
+}
+.app-name{font-size: 18px;}
+.app-auth{font-size: 13px;}
+.app-desc{font-size: 13px;}
+
+/*Styling div which shows output for inputted text*/
+.input{																	/*Styling input div*/
+	display: block;
+	margin: 7px auto 7px auto;
+	width: 100%;
+	height: 10vh;
+	font-size: 1.5em;
+	font-weight: 700;
+	overflow-x: auto;
+	padding: 0px;
+	outline: none;
+}
+
+.input:focus-visible {outline: 0px;}									/*Styling visible state of input div*/
+.output{margin: 7px auto;}												/*Styling output div*/
+
+/*
+	Styling :
+	Button row which contains row of calculator buttons
+	Calculator buttons contained in button row
+*/
+.calc-btn-row{															/*Styling calculator button row*/
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 99%;
+}
+.calc-btn{															   /*Styling calculator buttons*/
+	text-align:center;
+	display: block;
+	margin: 2px;
+	width: 25%;
+	padding: 4px;
+	background: #E8E8E8;
+}
+.calc-btn:hover{background: darkblue; color: white;}			 /*Styling hover state of calculator buttons*/
+.white-btn{background: white;}									   /*Styling number buttons in calculator*/
+.red-btn:hover{background: red;color: white;} 		 	         /*Styling cancel button*/
+.green-btn:hover{background: green; color: white;}				 /*Styling = button*/
+
+/*CSS Media queries to make the styling responsive*/
+@media(max-width: 600px){
+	.calc{width: 100%;margin-top: 15vh;}
+	.dropdown{margin-top: 4px; width: 80%;}
+	.about-div{width: 94%;}
+}

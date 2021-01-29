@@ -1,0 +1,160 @@
+<!--
+	TASK : Creating a windows calculator replica using plain HTML/CSS/JS
+	CREATED BY : Aashish Loknath Panigrahi
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Calculator</title>
+	<meta charset="UTF-8">
+  	<meta name="description" content="Windows calculator replica">
+  	<meta name="keywords" content="calculator">
+  	<meta name="author" content="Aashish Loknath Panigrahi (@asxyzp)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<link href="https://winaero.com/blog/wp-content/uploads/2019/10/Windows-10-Calculator-Fluent-Icon-Big-256.png" rel="icon">
+	<script src="https://kit.fontawesome.com/4d77ecffb7.js" crossorigin="anonymous"></script>
+	<script src="script.js" async defer></script>
+  </head>
+  <body>
+
+	  	<!--calc container will container all the contents of a calculator-->
+    	<div class="calc">
+
+			<div class="about-div">
+				<div class="about">
+					<span class="app-name"><i class="fab fa-microsoft"></i>&nbsp;<strong>Windows&#174; calculator (replica)</strong></span><br>
+					<span class="app-auth"><strong>Author :</strong> Aashish Loknath Panigrahi</span><br>
+					<span class="app-desc"><strong>Description :</strong> Calculator app in standard mode allows to perform basic calculations.</span><br>
+					<span class="app-auth"><strong>Version :</strong> 1.0</span>
+				</div>
+			</div>
+			
+			<!--
+				calc-top contains :
+				1. Name of the application (Calculator)
+				2. Buttons for minimizing, closing & enlarging the calculator (not functional)
+			-->
+			<div class="calc-top">
+				<div class="calc-desc">Calculator</div>
+				<div class="calc-top-btn-group">
+					<i class="bi bi-dash top-btn calc-min"></i>
+					<i class="bi bi-plus top-btn calc-max"></i>
+					<i class="bi bi-x top-btn calc-cancel red-btn"></i>
+				</div>
+			</div>
+
+			<!--
+				calc-body-hist contains :
+				1. Calculator body for inputting calc.
+				2. Side pain which will toggle which contains History &	Memory
+			-->
+			<div class="calc-body-hist">
+
+				<!--calc-body contains body of calculator-->
+				<div class="calc-body">
+					<!--
+						calc-opt contains :
+						1. Dropdown menu to select between standard & scientific calculator
+						   Out of which only standard calculator will be available.
+						2. Type of calculator available (Standard/Scientific)
+						3. History button
+					-->
+					<div class="calc-opt">
+
+						<div class="calc-opt-left">
+							<i class="bi bi-list dropdown-menu"></i>
+							<span class="std">Standard</span>
+						</div>
+						<i class="bi bi-clock-history hist-btn"></i>
+					
+					</div>
+					
+					<!--Dropdown menu which will be shown when we will click menu button-->
+					<div class="dropdown">
+
+						<!--Calculation options-->
+						<div class="dropdown-menu-name"><span>Calculate</span></div>
+						<div class="dropdown-option std-opt"><i class="bi bi-calculator"></i>&nbsp; Standard</div>
+						<div class="other-opt"><i class="bi bi-moon"></i>&nbsp; Scientific</div>
+						<div class="other-opt"><i class="bi bi-bar-chart-fill"></i>&nbsp;Graphical</div>
+						<div class="other-opt"><i class="bi bi-cpu"></i>&nbsp; Programmer</div>
+						<div class="other-opt"><i class="bi bi-calendar-event"></i>&nbsp; Date calculation</div>
+
+						<!--Conversion options-->
+						<br>
+						<div class="dropdown-menu-name"><span>Convert</span></div>
+						<div class="other-opt"><i class="bi bi-cash-stack"></i>&nbsp; Currency</div>
+						<div class="other-opt"><i class="bi bi-droplet-half"></i>&nbsp; Volume</div>
+						<div class="other-opt"><i class="bi bi-rulers"></i>&nbsp; Length</div>
+						<div class="other-opt"><i class="bi bi-thermometer-half"></i>&nbsp; Temperature</div>
+
+						<!--About-->
+						<br>
+						<div class="about-opt"><i class="bi bi-patch-question-fill"></i>&nbsp; About</div>
+					</div>
+
+					<!--Using div instead of <input type="text"/> for text input & output field-->
+					<div class="input"></div>	<!--Shows input text-->
+					<div class="output"></div>	<!--Shows output text-->
+					
+					<!--
+						Styling rows containing different calculator buttons :
+						ROW 1 : (, ), cancel, divide
+						ROW 2 : 7, 8, 9, Multiply
+						ROW 3 : 4, 5, 6, Minus
+						ROW 4 : 7, 8, 9, Plus
+						ROW 5 : %, 0, ., =
+					-->
+
+					<!--ROW2-->
+					<div>	
+						<div class="calc-btn-row">
+						<div class="calc-btn" id="left-br">(</div>
+						<div class="calc-btn" id="right-br">)</div>
+						<div class="calc-btn red-btn" id="cancel"><i class="bi bi-backspace-fill"></i></div>
+						<div class="calc-btn" id="div">÷</div>
+					</div>
+					
+					<!--ROW3-->
+					<div class="calc-btn-row">
+						<div class="calc-btn white-btn" id="seven">7</div>
+						<div class="calc-btn white-btn" id="eight">8</div>
+						<div class="calc-btn white-btn" id="nine" >9</div>
+						<div class="calc-btn" id="mul"><i class="bi bi-x"></i></div>
+					</div>
+					
+					<!--ROW4-->
+					<div class="calc-btn-row">
+						<div class="calc-btn white-btn" id="four">4</div>
+						<div class="calc-btn white-btn" id="five">5</div>
+						<div class="calc-btn white-btn" id="six" >6</div>
+						<div class="calc-btn" id="minus"><i class="bi bi-dash"></i></div>
+					</div>
+					
+					<!--ROW5-->
+					<div class="calc-btn-row">
+						<div class="calc-btn white-btn" id="one">1</div>
+						<div class="calc-btn white-btn" id="two">2</div>
+						<div class="calc-btn white-btn" id="three" >3</div>
+						<div class="calc-btn" id="plus"><i class="bi bi-plus"></i></div>
+					</div>
+					
+					<!--ROW6-->
+					<div class="calc-btn-row">
+						<div class="calc-btn" id="percent">%</div>
+						<div class="calc-btn white-btn" id="zero">0</div>
+						<div class="calc-btn" id="dot">.</div>
+						<div class="calc-btn green-btn" id="equal">=</div>
+					</div>
+				</div>
+
+				<!--calc-body shows history of calculation (NOT FUNCTIONAL IN V2.0)-->
+				<div class="calc-hist"></div>
+			</div>
+		</div>
+  </body>
+</html>
